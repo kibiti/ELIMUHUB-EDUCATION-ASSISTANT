@@ -1,0 +1,10 @@
+# Node, Python, etc. not needed for static site, but include for future extensibility
+node_modules/
+.env
+*.env
+*.log
+.DS_Store
+*.pyc
+__pycache__/
+dist/
+build/
