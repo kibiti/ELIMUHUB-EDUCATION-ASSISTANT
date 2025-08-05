@@ -78,8 +78,8 @@ elimuhub-education-assistant/
 ## Example File Links
 
 - [index.html](./index.html)
-- [assets/logo.jpg (replace with your logo)](./assets/logo.jpg)
-- [assets/banner.jpg (replace with your banner)](./assets/banner.jpg)
+- ![Elimuhub Banner](https://i.postimg.cc/kg7hJp1M/Elimuhub-banner-1.jpg)
+- ![Elimuhub logo](https://i.postimg.cc/K8WRJDsP/elimuhub-logo-circular.jpg)
 
 ---
 
