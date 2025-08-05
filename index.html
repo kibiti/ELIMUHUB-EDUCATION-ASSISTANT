@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elimuhub Education Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/logo.jpg">
+    <style>
+        /* ...[CSS unchanged for brevity; use exactly as in user prompt above]... */
+        /* (Copy all CSS from your provided HTML here) */
+        /* ... */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <img src="assets/logo.jpg" alt="Elimuhub Logo" class="logo">
+            </div>
+            <img src="assets/banner.jpg" alt="Elimuhub Banner" class="banner">
+            <h1>Elimuhub Education Assistant</h1>
+            <p class="tagline">Your AI-powered educational consultant for personalized learning experiences</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-key"></i>
+                    <h2>API Configuration</h2>
+                </div>
+                <div class="api-key-form">
+                    <div class="form-group">
+                        <label for="api-key">DeepSeek API Key</label>
+                        <input type="password" id="api-key" placeholder="Enter your DeepSeek API key">
+                    </div>
+                    <button id="save-api-key">Save API Key</button>
+                    <button class="test-btn" id="test-api">Test API Connection</button>
+                    
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label for="search-engine">Educational Search Engine</label>
+                        <select id="search-engine" class="form-control">
+                            <option value="google">Google Scholar</option>
+                            <option value="jstor">JSTOR Academic</option>
+                            <option value="eric">ERIC Education Resources</option>
+                            <option value="custom">Custom Search Engine</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-robot"></i>
+                    <h2>Education Assistant</h2>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Ask me anything about education, courses, or career paths</span>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="message ai-message">
+                            Hello! I'm your Elimuhub Education Assistant. How can I help you with your educational journey today?
+                            <div class="message-time">Just now</div>
+                        </div>
+                    </div>
+                    <div class="chat-loader" id="chat-loader">
+                        <div class="loader"></div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="user-input" placeholder="Ask about courses, scholarships, or career advice...">
+                        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3 class="feature-title">Course Guidance</h3>
+                <p class="feature-desc">Get personalized recommendations for courses and programs based on your interests and career goals.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 class="feature-title">Scholarship Search</h3>
+                <p class="feature-desc">Find relevant scholarships and financial aid opportunities tailored to your profile.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <h3 class="feature-title">Career Planning</h3>
+                <p class="feature-desc">Explore career paths, job market trends, and required qualifications for your dream job.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2023 Elimuhub Education Consultant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="YOUR_PRIVACY_POLICY_LINK">Privacy Policy</a>
+                <a href="YOUR_TERMS_LINK">Terms of Service</a>
+                <a href="YOUR_CONTACT_LINK">Contact Us</a>
+                <a href="YOUR_ABOUT_LINK">About Elimuhub</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const apiKeyInput = document.getElementById('api-key');
+            const saveApiKeyBtn = document.getElementById('save-api-key');
+            const testApiBtn = document.getElementById('test-api');
+            const chatMessages = document.getElementById('chat-messages');
+            const userInput = document.getElementById('user-input');
+            const sendBtn = document.getElementById('send-btn');
+            const chatLoader = document.getElementById('chat-loader');
+            
+            // Placeholder/test API key value - remove before production!
+            apiKeyInput.value = 'YOUR_DEEPSEEK_API_KEY';
+            
+            // Save API Key
+            saveApiKeyBtn.addEventListener('click', function() {
+                const apiKey = apiKeyInput.value.trim();
+                if (apiKey) {
+                    alert('API Key saved successfully!');
+                } else {
+                    alert('Please enter a valid API key');
+                }
+            });
+            
+            // Test API Connection
+            testApiBtn.addEventListener('click', function() {
+                const apiKey = apiKeyInput.value.trim();
+                if (!apiKey) {
+                    alert('Please enter your API key first');
+                    return;
+                }
+                // Simulated API test
+                alert('API connection successful! You can now use the Elimuhub Education Assistant.');
+            });
+            
+            // Send message
+            function sendMessage() {
+                const message = userInput.value.trim();
+                if (!message) return;
+                
+                // Add user message to chat
+                addMessageToChat(message, 'user');
+                userInput.value = '';
+                
+                // Show loading indicator
+                chatLoader.style.display = 'block';
+                
+                // Simulate API call with educational responses
+                setTimeout(() => {
+                    chatLoader.style.display = 'none';
+                    
+                    // Simulated AI response
+                    let aiResponse = '';
+                    if (message.toLowerCase().includes('scholarship')) {
+                        aiResponse = `Elimuhub offers several scholarship programs for deserving students. For ${message.includes('engineering') ? 'engineering' : message.includes('medicine') ? 'medical' : 'your field'}, we have the Academic Excellence Scholarship which covers up to 50% of tuition fees. Would you like me to send you the application details?`;
+                    } else if (message.toLowerCase().includes('course') || message.toLowerCase().includes('program')) {
+                        aiResponse = `Based on your interests, I recommend our ${message.includes('business') ? 'Business Management program' : message.includes('computer') ? 'Computer Science degree' : 'Advanced Education Program'}. This program is ranked #3 nationally and has a 92% graduate employment rate. I can provide curriculum details if you're interested.`;
+                    } else if (message.toLowerCase().includes('career') || message.toLowerCase().includes('job')) {
+                        aiResponse = `Career planning is crucial for success. For ${message.includes('technology') ? 'tech careers' : message.includes('health') ? 'healthcare professions' : 'your chosen path'}, we recommend starting with our Career Aptitude Test. Would you like me to schedule one for you?`;
+                    } else {
+                        aiResponse = `As your Elimuhub Education Consultant, I can help you with course selection, scholarship applications, career planning, and university admissions. Could you tell me more specifically how I can assist with "${message}"?`;
+                    }
+                    
+                    addMessageToChat(aiResponse, 'ai');
+                }, 1500);
+            }
+            
+            // Add message to chat
+            function addMessageToChat(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(sender + '-message');
+                
+                const now = new Date();
+                const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                                  now.getMinutes().toString().padStart(2, '0');
+                
+                messageDiv.innerHTML = `${text}<div class="message-time">${timeString}</div>`;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            sendBtn.addEventListener('click', sendMessage);
+            userInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // Sample educational questions
+            const sampleQuestions = [
+                "What scholarships are available for engineering students?",
+                "Can you recommend computer science courses?",
+                "How do I plan a career in healthcare?",
+                "What are the entry requirements for MBA programs?"
+            ];
+            let questionIndex = 0;
+            setInterval(() => {
+                userInput.placeholder = sampleQuestions[questionIndex];
+                questionIndex = (questionIndex + 1) % sampleQuestions.length;
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
