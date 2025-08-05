@@ -54,8 +54,8 @@ elimuhub-education-assistant/
 ## Placeholders to Replace
 
 - `YOUR_DEEPSEEK_API_KEY` — Enter your actual DeepSeek or preferred AI API key in the UI.
-- `YOUR_LOGO_URL` — Replace with your own logo in `/assets/logo.jpg` and update the `<img src="">` in the HTML.
-- `YOUR_BANNER_URL` — Replace with your own banner in `/assets/banner.jpg` and update the `<img src="">` in the HTML.
+- `https://i.postimg.cc/K8WRJDsP/elimuhub-logo-circular.jpg` — Replace with your own logo in `/assets/logo.jpg` and update the `<img src="">` in the HTML.
+- `https://i.postimg.cc/kg7hJp1M/Elimuhub-banner-1.jpg` — Replace with your own banner in `/assets/banner.jpg` and update the `<img src="">` in the HTML.
 - `YOUR_CONTACT_LINKS` — Update footer links in the HTML.
 - `YOUR_PRIVACY_POLICY_LINK` / `TERMS` — Update links as needed.
 - Any text in ALL UPPERCASE in the code.
